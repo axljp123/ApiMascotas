@@ -31,7 +31,7 @@ public class ServiceMascotas {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_XML)
     public Mascota getMascota(@PathParam("id") String id) {
         int idmascota = Integer.parseInt(id);
