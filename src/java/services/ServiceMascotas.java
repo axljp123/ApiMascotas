@@ -30,11 +30,11 @@ public class ServiceMascotas {
         return this.repo.getMascotas();
     }
 
-    /*@GET
+    @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_XML)
     public Mascota getMascota(@PathParam("id") String id) {
         int idmascota = Integer.parseInt(id);
         return this.repo.buscarMascota(idmascota);
-    }*/
+    }
 }

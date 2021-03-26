@@ -11,9 +11,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Mascota {
 
-    public int idmascota;
-    public String nombre;
-    public String tipoanimal;
+    private int idmascota;
+    private String nombre;
+    private String tipoanimal;
 
     public Mascota(int idmascota, String nombre, String tipoanimal) {
         this.idmascota = idmascota;
