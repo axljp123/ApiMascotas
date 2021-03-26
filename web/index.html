@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+Vamos a crearnos un Servicio para exponer Mascotas
+ApiMascotas
+Tendremos una clase llamada Mascota (id, nombre, tipoanimal)
+Queremos un Servicio que mostrará múltiples mascotas y también nos permitirá buscar mascota por ID.
+-->
+<html>
+    <head>
+        <title>API MASCOTAS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>API MASCOTAS</h1>
+        <br/>
+        <table border="1" id="tablaapimascotas">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>ANIMAL</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: "api/mascotas",
+                    type: 'GET',
+                    dataType: 'xml',
+                    success: function (data) {
+                        console.log("dentro de succes");
+                        var mascotas = $(data).find("mascota");
+                        var html = "";
+                        mascotas.each(function () {
+                            console.log("dentro de each");
+                            var idmascota = $(this).find("idmascota").text();
+                            var nombre = $(this).find("nombre").text();
+                            var tipoanimal = $(this).find("tipoanimal").text();
+                            html += "<tr>";
+                            html += "<td>" + idmascota + "</td>";
+                            html += "<td>" + nombre + "</td>";
+                            html += "<td>" + tipoanimal + "</td>";
+                            html += "</tr>";
+                        });
+                        $("#tablaapimascotas tbody").html(html);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
